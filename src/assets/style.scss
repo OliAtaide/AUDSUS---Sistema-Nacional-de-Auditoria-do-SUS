@@ -8,11 +8,22 @@
     --primary-light: #e1f4fd;
     --primary-dark: #113154;
     --primary: #49a4e7;
+    --success: #178545;
     --secondary-dark: #0f506b;
 }
 
 * {
     font-family: "Titillium Web", sans-serif;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    .footer {
+        margin-top: auto;
+    }
 }
 
 .header,
@@ -42,7 +53,7 @@
     background-color: var(--primary-dark);
 }
 
-.nav{
+.nav {
     justify-content: space-between;
 }
 
@@ -70,8 +81,8 @@
 
     &.active {
         .number {
-            border: 1px solid var(--primary);
-            background: var(--primary);
+            border: 1px solid var(--success);
+            background: var(--success);
             color: white;
         }
     }
@@ -82,4 +93,11 @@
             color: white;
         }
     }
+}
+
+.img-b {
+    border-radius: 24px;
+    border: 1px solid hsla(0, 0%, 40%, .5);
+
+    padding: 20px 24px 0px 24px;
 }
