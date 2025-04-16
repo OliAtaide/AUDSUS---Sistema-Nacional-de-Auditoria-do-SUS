@@ -21,7 +21,16 @@ const comp = ref(NotFound);
 const next = ref(false);
 const prev = ref(false);
 
-const slides = [SlideOne, SlideTwo, SlideThree, SlideFour, SlideFive, SlideSix, SlideSeven, SlideLast];
+const slides = [
+  SlideOne,
+  SlideTwo,
+  SlideThree,
+  SlideFour,
+  SlideFive,
+  SlideSix,
+  SlideSeven,
+  SlideLast,
+];
 
 const titles = [
   "Dados Básicos",
@@ -30,8 +39,8 @@ const titles = [
   "Constatação",
   "Evidência",
   "Fonte de evidência",
-  "Responsável"
-]
+  "Responsável",
+];
 
 function getComp() {
   const idint = Number.parseInt(id) - 1;
@@ -73,15 +82,26 @@ watch(
     <div class="card-body">
       <ul class="nav">
         <li class="nav-item" v-for="i in slides.length - 1" :key="i">
-          <a class="nav-link" :class="i < $route.params.id ? 'active' : ( i == $route.params.id ? 'current' : '')" aria-current="page" :href=i>
+          <router-link
+            :to="`${i}`"
+            class="nav-link"
+            :class="
+              i < $route.params.id
+                ? 'active'
+                : i == $route.params.id
+                ? 'current'
+                : ''
+            "
+            aria-current="page"
+          >
             <div class="number">
               <i v-if="i < $route.params.id" class="bi bi-check"></i>
               <span v-else>
                 {{ i }}
               </span>
             </div>
-            {{ titles[i-1] }}
-          </a>
+            {{ titles[i - 1] }}
+          </router-link>
         </li>
       </ul>
       <div :if="isMounted.value" class="container main p-3">
@@ -89,5 +109,9 @@ watch(
       </div>
     </div>
   </div>
-  <NavButtons :id="Number.parseInt($route.params.id)" :prev="prev" :next="next"></NavButtons>
+  <NavButtons
+    :id="Number.parseInt($route.params.id)"
+    :prev="prev"
+    :next="next"
+  ></NavButtons>
 </template>

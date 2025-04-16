@@ -20,7 +20,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 class="modal-title" id="exampleModalLabel">Modal title</h2>
+          <h2 class="modal-title" id="exampleModalLabel">Matriz de Achados</h2>
           <button
             type="button"
             class="btn-close"
